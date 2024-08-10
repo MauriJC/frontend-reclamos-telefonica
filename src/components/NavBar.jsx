@@ -37,12 +37,23 @@ function Navbar() {
                     onClose={handleClose}
                 >
                     <MenuItem onClick={handleClose}><RouterLink to='/claims/create'>Cargar reclamo</RouterLink></MenuItem>
-                    <MenuItem onClick={handleClose}> <RouterLink to='/claims/create'>Listado de reclamos</RouterLink></MenuItem>
-                    <MenuItem onClick={handleClose}><RouterLink to='/claims/create'>Funcionalidad 3</RouterLink></MenuItem>
+                    <MenuItem onClick={handleClose}> <RouterLink to='/claims/list'>Listado de reclamos nuevos</RouterLink></MenuItem>
+                    <MenuItem onClick={handleClose}> <RouterLink to='/claims/list'>Historial de reclamos</RouterLink></MenuItem>
                 </Menu>
 
 
-                <Button color="inherit" component={RouterLink} to="/installations">Instalaciones</Button>
+                <Button color="inherit" onClick={(event) => handleClick(event, 'installations')}>Instalaciones</Button>
+                <Menu
+                    anchorEl={anchorEl}
+                    open={menu === 'installations'}
+                    onClose={handleClose}
+                >
+                    <MenuItem onClick={handleClose}><RouterLink to='/installations/create'>Cargar instalación</RouterLink></MenuItem>
+                    <MenuItem onClick={handleClose}> <RouterLink to='/installations/list'>Listado de instalaciones nuevas</RouterLink></MenuItem>
+                    <MenuItem onClick={handleClose}> <RouterLink to='/installations/list'>Historial de instalaciones</RouterLink></MenuItem>
+                </Menu>
+
+
                 <Button color="inherit" component={RouterLink} to="/mobiles">Moviles</Button>
                 <Button color="inherit" component={RouterLink} to="/services">Servicios</Button>
                 <Button color="inherit" component={RouterLink} to="/clients">Clientes</Button>

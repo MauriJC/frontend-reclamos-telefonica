@@ -7,22 +7,13 @@ import ClientDataTable from "../components/ClientDataTable";
 
 
 
-const client = {
-  name: 'Mauricio Chaile',
-  email: 'mauricio@example.com',
-  phone: '123-456-7890',
-  address: '123 Main St, Springfield',
-  profileImage: 'https://via.placeholder.com/150', // URL de la imagen de perfil
-};
-
-
 
 const CreateClaimScreen = () => {
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [serviceData, setServiceData] = useState(null);
   const title = 'Nro. de Linea';
-  const buttonTitle = 'Buscar Servicio';
+  const buttonTitle = 'Servicio';
 
 
   const [observations, setObservations] = useState('');
@@ -125,4 +116,4 @@ const CreateClaimScreen = () => {
   )
 }
 
-export default CreateClaimScreen
+export default CreateClaimScreen;

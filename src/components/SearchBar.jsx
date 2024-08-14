@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { TextField, InputAdornment, Button, Box } from '@mui/material';
+import { TextField, InputAdornment, Button, Box, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = ({ onChangeTerm, title, buttonTitle, getService }) => {
@@ -12,15 +12,15 @@ const SearchBar = ({ onChangeTerm, title, buttonTitle, getService }) => {
 
     return (
         <>
-            <Box sx={{ display: 'flex', gap: 5, justifyContent: 'center', alignContent: 'center' }}>
+            <Box sx={{ display: 'flex', gap: 5, justifyContent: 'center'}}>
 
-                <p>{title}:</p>
+                <Typography variant="body1" sx={{alignSelf:'center'}}>{title}:</Typography>
 
                 <TextField
                     variant="outlined"
                     placeholder={`Buscar ${buttonTitle}...`}
                     onChange={(e) => onChangeTerm(e.target.value)}
-                    onKeyPress={handleKeyPress}
+                    onKeyUp={handleKeyPress}
                     required
                     type='number'
                     InputProps={{

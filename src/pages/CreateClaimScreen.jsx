@@ -5,9 +5,6 @@ import { useState } from 'react';
 import api from "../api/api";
 import ClientDataTable from "../components/ClientDataTable";
 
-
-
-
 const CreateClaimScreen = () => {
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');

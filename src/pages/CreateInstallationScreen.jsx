@@ -58,7 +58,7 @@ const CreateInstallationScreen = () => {
         const response = await api.get(`/services/client/dni/${searchTerm}`);
         setLoading(false);
         setClientInfo(response.data);
-        console.log(clientInfo)
+        console.log(response.data)
     }
 
     return (
@@ -88,11 +88,12 @@ const CreateInstallationScreen = () => {
                     <Box sx={{ width: '100%' }}>
                         <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                             <Button variant="contained" color="success">
-                                <Link to='./new' style={{
-                                    color: 'inherit',
-                                    textDecoration: 'none',
-                                    ':visited': { color: 'inherit' }
-                                }}> Agregar servicio  </Link> </Button>
+                                <Link to={`./new/${clientInfo.id_client}`}
+                                    style={{
+                                        color: 'inherit',
+                                        textDecoration: 'none',
+                                        ':visited': { color: 'inherit' }
+                                    }}> Agregar servicio  </Link> </Button>
                         </Box>
                         <ClientInfoTable clientInfo={clientInfo}></ClientInfoTable>
 
@@ -102,15 +103,23 @@ const CreateInstallationScreen = () => {
                             Listado de servicios del cliente
                         </Typography>
 
-                        <DataGrid
-                            rows={clientInfo.Services}
-                            columns={columns}
-                            pageSize={5}
-                            rowsPerPageOptions={[5, 10, 20]}
-                            loading={loading}
-                            getRowId={(row) => row.id_service}
-                            sx={{ backgroundColor: 'white' }}
-                        />
+                        {clientInfo.Services ? (
+                            <DataGrid
+                                rows={clientInfo.Services}
+                                columns={columns}
+                                pageSize={5}
+                                rowsPerPageOptions={[5, 10, 20]}
+                                loading={loading}
+                                getRowId={(row) => row.id_service}
+                                sx={{ backgroundColor: 'white' }}
+                            />
+                        ) :
+                            <>
+                                <Typography>
+                                    El cliente no tiene servicios a su nombre
+                                </Typography>
+                            </>
+                        }
 
                     </Box>
                 </>

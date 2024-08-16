@@ -12,9 +12,9 @@ const SearchBar = ({ onChangeTerm, title, buttonTitle, getService }) => {
 
     return (
         <>
-            <Box sx={{ display: 'flex', gap: 5, justifyContent: 'center'}}>
+            <Box sx={{ display: 'flex', gap: 5, justifyContent: 'center' }}>
 
-                <Typography variant="body1" sx={{alignSelf:'center'}}>{title}:</Typography>
+                <Typography variant="body1" sx={{ alignSelf: 'center' }}>{title}:</Typography>
 
                 <TextField
                     variant="outlined"
@@ -32,7 +32,7 @@ const SearchBar = ({ onChangeTerm, title, buttonTitle, getService }) => {
                     }}
                     sx={{ width: '70%', backgroundColor: 'white' }}
                 />
-                <Button variant='contained' color='success' onClick={getService}>Buscar {buttonTitle}</Button>
+                <Button variant='contained' color='primary' onClick={getService}>Buscar {buttonTitle}</Button>
             </Box >
         </>
     );

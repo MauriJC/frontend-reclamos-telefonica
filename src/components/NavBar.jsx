@@ -21,14 +21,14 @@ function Navbar() {
         setMenu('');
     };
 
-
     return (
         <>
             <AppBar sx={{ backgroundColor: 'gray', position: 'fixed' }}>
                 <Toolbar sx={{ gap: { md: 1, l: 1 } }}>
                     <img src={logo} alt="logo" style={{ height: '10%', width: '4%' }} />
-
-                    <Button color="inherit" component={RouterLink} to='/'>Home</Button>
+                    <Button color="inherit" component={RouterLink} to='/'>
+                        Home
+                    </Button>
 
                     <Button color="inherit" onClick={(event) => handleClick(event, 'claims')}>Reclamos</Button>
                     <Menu
@@ -43,10 +43,7 @@ function Navbar() {
                             <RouterLink to='/claims/list' className="router-link">Listado de reclamos nuevos</RouterLink>
                         </MenuItem>
                         <MenuItem onClick={handleClose}>
-                            <RouterLink to='/claims/list' className="router-link">Historial de reclamos</RouterLink>
-                        </MenuItem>
-                        <MenuItem onClick={handleClose}>
-                            <RouterLink to='/claims/list' className="router-link">Cierre sin visita</RouterLink>
+                            <RouterLink to='/claims/history' className="router-link">Historial de reclamos</RouterLink>
                         </MenuItem>
                     </Menu>
 
@@ -78,9 +75,6 @@ function Navbar() {
                         </MenuItem>
                         <MenuItem onClick={handleClose}>
                             <RouterLink to='/installations/list' className="router-link">Asignar reclamo o instalación a móvil</RouterLink>
-                        </MenuItem>
-                        <MenuItem onClick={handleClose}>
-                            <RouterLink to='/installations/list' className="router-link">Historial de instalaciones</RouterLink>
                         </MenuItem>
                     </Menu>
 

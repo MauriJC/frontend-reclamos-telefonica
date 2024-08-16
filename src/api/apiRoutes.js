@@ -22,9 +22,11 @@ const apiRoutes = {
     claims: {
         getAll: `${BASE_URL}/claims`,
         getById: (id) => `${BASE_URL}/claims/${id}`,
+        getDetailsByid: (id)=> `${BASE_URL}/claims/details/${id}`,
         create: `${BASE_URL}/claims`,
         update: (id) => `${BASE_URL}/claims/${id}`,
-        delete: (id) => `${BASE_URL}/claims/${id}`
+        delete: (id) => `${BASE_URL}/claims/${id}`,
+        closeWithoutVisit: (id) => `${BASE_URL}/claims/closeWithoutVisit/${id}`
     },
     clients: {
         getAll: `${BASE_URL}/clients`,

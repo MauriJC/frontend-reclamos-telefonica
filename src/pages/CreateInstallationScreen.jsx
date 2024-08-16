@@ -87,10 +87,10 @@ const CreateInstallationScreen = () => {
                 <>
                     <Box sx={{ width: '100%' }}>
                         <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                            <Button variant="contained" color="success">
+                            <Button variant="contained" color="primary">
                                 <Link to={`./new/${clientInfo.id_client}`}
                                     style={{
-                                        color: 'inherit',
+                                        color: 'primary',
                                         textDecoration: 'none',
                                         ':visited': { color: 'inherit' }
                                     }}> Agregar servicio  </Link> </Button>

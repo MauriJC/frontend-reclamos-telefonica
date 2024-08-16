@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
-import { DataGrid } from '@mui/x-data-grid';
-import { Box, IconButton, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Box, IconButton, Typography } from "@mui/material";
+import { useState, useEffect } from "react";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import api from '../api/api';
+import { Link } from "react-router-dom";
+import { DataGrid } from "@mui/x-data-grid";
+import api from "../../api/api";
 
-const ClaimsList = () => {
+
+const ClaimsHistory = () => {
     const [claims, setClaims] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -15,7 +16,6 @@ const ClaimsList = () => {
         const fetchClaims = async () => {
             const response = await api.get('/claims');
             setClaims(response.data);
-            //console.log(response.data)
             setLoading(false);
         };
 
@@ -61,21 +61,11 @@ const ClaimsList = () => {
     ];
 
 
-    const filterModel = {
-        items: [
-            {
-                field: 'status',
-                operator: 'equals',
-                value: 'Nuevo',
-            },
-        ],
-    };
-
     return (
         <Box sx={{ width: '100%' }}>
 
             <Typography variant='h5'>
-                Listado de reclamos
+                Historial de reclamos
             </Typography>
 
             <DataGrid
@@ -85,11 +75,10 @@ const ClaimsList = () => {
                 rowsPerPageOptions={[5, 10, 20]}
                 loading={loading}
                 getRowId={(row) => row.id_claim}
-                filterModel={filterModel}
                 sx={{ backgroundColor: 'white' }}
             />
         </Box>
-    );
-};
+    )
+}
 
-export default ClaimsList;
+export default ClaimsHistory

@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
-import { CircularProgress, Typography, Box, Divider, TextField, Button } from "@mui/material";
+import { CircularProgress, Typography, Box, Divider, TextField, Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@mui/material";
 import SearchBar from "../components/SearchBar";
 import { useState } from 'react';
 import api from "../api/api";
 import ClientDataTable from "../components/ClientDataTable";
+import { Link, useNavigate } from "react-router-dom";
 
 const CreateClaimScreen = () => {
   const [loading, setLoading] = useState(false);
@@ -11,13 +12,16 @@ const CreateClaimScreen = () => {
   const [serviceData, setServiceData] = useState(null);
   const title = 'Nro. de Linea';
   const buttonTitle = 'Servicio';
-
-
   const [observations, setObservations] = useState('');
   const [visitTime, setVisitTime] = useState('');
+  const [openSuccessModal, setOpenSuccessModal] = useState(false);
+  const [openErrorModal, setOpenErrorModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
 
-  const handleVisitTimeChange = (event) =>{
+
+  const handleVisitTimeChange = (event) => {
     setVisitTime(event.target.value)
   }
 
@@ -36,20 +40,25 @@ const CreateClaimScreen = () => {
     setLoading(false)
   }
 
-  const createClaim = async()=>{
-    const {id_service} = serviceData; 
+  const createClaim = async () => {
+    const { id_service } = serviceData;
     const data = {
       id_service,
       observations,
-      visit_shedules_availability:visitTime
+      visit_shedules_availability: visitTime
     }
 
-    const response = await api.post('/claims',data);
+    const response = await api.post('/claims', data);
+    setOpenSuccessModal(true);
 
     console.log(response)
 
   }
 
+  const handleSuccessModalClose = () => {
+    setOpenSuccessModal(false);
+    navigate('/claims/list');
+  };
 
   return (
     <Box
@@ -96,9 +105,13 @@ const CreateClaimScreen = () => {
             onChange={handleVisitTimeChange}
             sx={{ backgroundColor: 'white', width: '80%', marginLeft: 'auto', marginRight: 'auto' }}
           />
-          <Box sx={{display:'flex',justifyContent:'flex-end',gap:2}}>
-            <Button variant="contained" color="error">Cancelar</Button>
-            <Button variant="contained" color="success" onClick={createClaim}>Cargar reclamo</Button>
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
+            <Button variant="contained" color="primary">
+              <Link to='/' className="router-link">
+                Cancelar
+              </Link>
+            </Button>
+            <Button variant="contained" color="primary" onClick={createClaim}>Cargar reclamo</Button>
           </Box>
 
         </>
@@ -107,6 +120,28 @@ const CreateClaimScreen = () => {
 
       <Divider variant="middle" sx={{ backgroundColor: 'white' }} />
 
+
+     {/* Modal de éxito */}
+     <Dialog open={openSuccessModal} onClose={handleSuccessModalClose}>
+                    <DialogTitle>Éxito</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>Reclamo creado con éxito</DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleSuccessModalClose} color="primary">OK</Button>
+                    </DialogActions>
+                </Dialog>
+
+                {/* Modal de error */}
+                <Dialog open={openErrorModal} onClose={() => setOpenErrorModal(false)}>
+                    <DialogTitle>Error</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>{errorMessage}</DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => setOpenErrorModal(false)} color="primary">Cerrar</Button>
+                    </DialogActions>
+                </Dialog>
 
     </Box>
 

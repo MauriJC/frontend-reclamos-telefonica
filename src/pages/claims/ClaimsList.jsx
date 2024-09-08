@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import api from '../api/api';
+import api from '../../api/api';
 
 const ClaimsList = () => {
     const [claims, setClaims] = useState([]);

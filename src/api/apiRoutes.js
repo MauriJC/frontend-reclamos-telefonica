@@ -22,7 +22,7 @@ const apiRoutes = {
     claims: {
         getAll: `${BASE_URL}/claims`,
         getById: (id) => `${BASE_URL}/claims/${id}`,
-        getDetailsByid: (id)=> `${BASE_URL}/claims/details/${id}`,
+        getDetailsByid: (id) => `${BASE_URL}/claims/details/${id}`,
         create: `${BASE_URL}/claims`,
         update: (id) => `${BASE_URL}/claims/${id}`,
         delete: (id) => `${BASE_URL}/claims/${id}`,
@@ -45,7 +45,7 @@ const apiRoutes = {
     mobiles: {
         getAll: `${BASE_URL}/mobiles`,
         getById: (id) => `${BASE_URL}/mobiles/${id}`,
-        create: `${BASE_URL}/mobiles`,
+        assign: `${BASE_URL}/mobiles`,
         update: (id) => `${BASE_URL}/mobiles/${id}`,
         delete: (id) => `${BASE_URL}/mobiles/${id}`
     },
@@ -62,7 +62,29 @@ const apiRoutes = {
         create: `${BASE_URL}/usedMaterialsAttentions`,
         update: (id) => `${BASE_URL}/usedMaterialsAttentions/${id}`,
         delete: (id) => `${BASE_URL}/usedMaterialsAttentions/${id}`
-    }
+    },
+
+    employees: {
+        getAllTechnicians: `${BASE_URL}/employees/technicians`,
+        getAllAvailableTechnicians: `${BASE_URL}/employees/technicians/available`,
+        getAll: `${BASE_URL}/employees`,
+        getById: (id) => `${BASE_URL}/employees/${id}`,
+        create: `${BASE_URL}/employees/`,
+        delete: (id) => `${BASE_URL}/employees/${id}`,
+        update: (id) => `${BASE_URL}/employees/${id}`,
+
+    },
+
+    vehicles: {
+        getAll: `${BASE_URL}/vehicles/`,
+        getAvailable: `${BASE_URL}/vehicles/available`,
+        getById: (id) => `${BASE_URL}/vehicles/${id}`,
+        create: `${BASE_URL}/vehicles/`,
+        delete: (id) => `${BASE_URL}/vehicles/${id}`,
+        update: (id) => `${BASE_URL}/vehicles/${id}`,
+
+    },
+
 };
 
 export default apiRoutes;

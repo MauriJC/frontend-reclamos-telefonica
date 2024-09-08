@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { CircularProgress, Typography, Box, Divider, TextField, Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@mui/material";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../../components/SearchBar";
 import { useState } from 'react';
-import api from "../api/api";
-import ClientDataTable from "../components/ClientDataTable";
+import api from "../../api/api";
+import ClientDataTable from "../../components/ClientDataTable";
 import { Link, useNavigate } from "react-router-dom";
 
 const CreateClaimScreen = () => {

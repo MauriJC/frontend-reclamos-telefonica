@@ -1,17 +1,19 @@
 import Navbar from './components/NavBar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import CreateClaimScreen from './pages/CreateClaimScreen';
-import CreateInstallationScreen from './pages/CreateInstallationScreen';
+import CreateClaimScreen from './pages/claims/CreateClaimScreen';
+import CreateInstallationScreen from './pages/installations/CreateInstallationScreen';
 import Home from './pages/HomeScreen';
 import { Box } from '@mui/material';
-import ClaimsList from './pages/ClaimsList';
-import InstallationsList from './pages/InstallationsList';
-import CreateService from './pages/CreateService';
+import ClaimsList from './pages/claims/ClaimsList';
+import InstallationsList from './pages/installations/InstallationsList';
+import CreateService from './pages/services/CreateService';
 import './styles.css';
 import CreateClient from './pages/clients/CreateClient';
 import ClaimsHistory from './pages/claims/ClaimsHistory';
 import CloseClaimWithoutVisit from './pages/claims/CloseClaimWithoutVisit';
 import ClaimDetails from './pages/claims/ClaimDetails';
+import InstallationsHistory from './pages/installations/InstallationsHistory';
+import AssignMobile from './pages/mobiles/AssignMobile';
 
 function App() {
   return (
@@ -37,6 +39,9 @@ function App() {
               <Route path='/installations/create' element={<CreateInstallationScreen />} />
               <Route path='/installations/create/new/:id_client' element={<CreateService />} />
               <Route path='/installations/list' element={<InstallationsList />} />
+              <Route path='/installations/history' element={<InstallationsHistory />} />
+
+              <Route path='/mobiles/assign' element={<AssignMobile/>} />
 
 
             </Routes>

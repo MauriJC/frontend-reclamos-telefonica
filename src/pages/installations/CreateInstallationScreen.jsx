@@ -1,9 +1,9 @@
 import { useState } from "react";
-import SearchBar from "../components/SearchBar"
-import api from "../api/api";
+import SearchBar from "../../components/SearchBar"
+import api from "../../api/api";
 import { Box, Button, CircularProgress, Divider, Typography, IconButton } from "@mui/material";
 import { DataGrid } from '@mui/x-data-grid';
-import ClientInfoTable from "../components/ClientInfoTable";
+import ClientInfoTable from "../../components/ClientInfoTable";
 import { Link } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -88,12 +88,10 @@ const CreateInstallationScreen = () => {
                     <Box sx={{ width: '100%' }}>
                         <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                             <Button variant="contained" color="primary">
-                                <Link to={`./new/${clientInfo.id_client}`}
-                                    style={{
-                                        color: 'primary',
-                                        textDecoration: 'none',
-                                        ':visited': { color: 'inherit' }
-                                    }}> Agregar servicio  </Link> </Button>
+                                <Link to={`./new/${clientInfo.id_client}`} className="router-link">
+                                    Agregar servicio
+                                </Link>
+                            </Button>
                         </Box>
                         <ClientInfoTable clientInfo={clientInfo}></ClientInfoTable>
 

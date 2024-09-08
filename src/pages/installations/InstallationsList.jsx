@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import api from '../api/api';
+import api from '../../api/api';
 
 const InstallationsList = () => {
 
@@ -29,7 +29,7 @@ const InstallationsList = () => {
             field: 'line_number',
             headerName: 'Nro. de línea',
             width: 300,
-            valueGetter: (value,row) => row.Service?.line_number,
+            valueGetter: (value, row) => row.Service?.line_number,
         },
         { field: 'status', headerName: 'Estado', width: 120 },
         { field: 'createdAt', headerName: 'Fecha', width: 250 },
@@ -74,11 +74,11 @@ const InstallationsList = () => {
                 columns={columns}
                 initialState={{
                     pagination: {
-                      paginationModel: {
-                        pageSize: 20,
-                      },
+                        paginationModel: {
+                            pageSize: 20,
+                        },
                     },
-                  }}
+                }}
                 loading={loading}
                 getRowId={(row) => row.id_installation}
                 filterModel={filterModel}

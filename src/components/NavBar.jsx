@@ -60,7 +60,7 @@ function Navbar() {
                             <RouterLink to='/installations/list' className="router-link">Listado de instalaciones nuevas</RouterLink>
                         </MenuItem>
                         <MenuItem onClick={handleClose}>
-                            <RouterLink to='/installations/list' className="router-link">Historial de instalaciones</RouterLink>
+                            <RouterLink to='/installations/history' className="router-link">Historial de instalaciones</RouterLink>
                         </MenuItem>
                     </Menu>
 
@@ -71,10 +71,10 @@ function Navbar() {
                         onClose={handleClose}
                     >
                         <MenuItem onClick={handleClose}>
-                            <RouterLink to='/installations/create' className="router-link">Asignar móvil</RouterLink>
+                            <RouterLink to='/mobiles/assign' className="router-link">Asignar móvil</RouterLink>
                         </MenuItem>
                         <MenuItem onClick={handleClose}>
-                            <RouterLink to='/installations/list' className="router-link">Asignar reclamo o instalación a móvil</RouterLink>
+                            <RouterLink to='/mobiles/assignclaim' className="router-link">Asignar reclamo o instalación a móvil</RouterLink>
                         </MenuItem>
                     </Menu>
 

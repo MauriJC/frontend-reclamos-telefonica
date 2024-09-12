@@ -23,6 +23,7 @@ const apiRoutes = {
         getAll: `${BASE_URL}/claims`,
         getById: (id) => `${BASE_URL}/claims/${id}`,
         getDetailsByid: (id) => `${BASE_URL}/claims/details/${id}`,
+        getUnassigned: `${BASE_URL}/claims/unassigned`,
         create: `${BASE_URL}/claims`,
         update: (id) => `${BASE_URL}/claims/${id}`,
         delete: (id) => `${BASE_URL}/claims/${id}`,
@@ -37,6 +38,7 @@ const apiRoutes = {
     },
     installations: {
         getAll: `${BASE_URL}/installations`,
+        getUnassigned: `${BASE_URL}/installations/unassigned`,
         getById: (id) => `${BASE_URL}/installations/${id}`,
         create: `${BASE_URL}/installations`,
         update: (id) => `${BASE_URL}/installations/${id}`,
@@ -46,6 +48,7 @@ const apiRoutes = {
         getAll: `${BASE_URL}/mobiles`,
         getById: (id) => `${BASE_URL}/mobiles/${id}`,
         assign: `${BASE_URL}/mobiles`,
+        assignMobilesAndInstallations: `${BASE_URL}/mobiles/assign`,
         update: (id) => `${BASE_URL}/mobiles/${id}`,
         delete: (id) => `${BASE_URL}/mobiles/${id}`
     },

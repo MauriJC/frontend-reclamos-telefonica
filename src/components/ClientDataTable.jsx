@@ -3,7 +3,7 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 
 const ClientDataTable = ({ serviceData }) => {
   return (
-    <TableContainer component={Paper} sx={{ maxWidth: 600, margin: 'auto', mt: 5, minHeight: '53vh' }}>
+    <TableContainer component={Paper} sx={{ maxWidth: '100%', margin: 'auto', mt: 5, minHeight: '53vh' }}>
       <Table>
         <TableHead>
           <TableRow>

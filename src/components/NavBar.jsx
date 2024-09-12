@@ -74,7 +74,7 @@ function Navbar() {
                             <RouterLink to='/mobiles/assign' className="router-link">Asignar móvil</RouterLink>
                         </MenuItem>
                         <MenuItem onClick={handleClose}>
-                            <RouterLink to='/mobiles/assignclaim' className="router-link">Asignar reclamo o instalación a móvil</RouterLink>
+                            <RouterLink to='/mobiles/assignClaimsOrInstallations' className="router-link">Asignar reclamo o instalación a móvil</RouterLink>
                         </MenuItem>
                     </Menu>
 

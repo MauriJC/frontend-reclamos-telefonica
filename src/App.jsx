@@ -14,6 +14,7 @@ import CloseClaimWithoutVisit from './pages/claims/CloseClaimWithoutVisit';
 import ClaimDetails from './pages/claims/ClaimDetails';
 import InstallationsHistory from './pages/installations/InstallationsHistory';
 import AssignMobile from './pages/mobiles/AssignMobile';
+import AssignClaimOrInstallation from './pages/mobiles/AssignClaimOrInstallation';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
               <Route path='/installations/history' element={<InstallationsHistory />} />
 
               <Route path='/mobiles/assign' element={<AssignMobile/>} />
+              <Route path='/mobiles/assignClaimsOrInstallations' element={<AssignClaimOrInstallation/>} />
 
 
             </Routes>
